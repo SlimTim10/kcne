@@ -1,0 +1,37 @@
+button.btn {
+	font-weight: bold;
+}
+
+button.btn-red-wire {
+	background-color: #FF4444;
+}
+
+button.btn-blue-wire {
+	background-color: #5555FF;
+}
+
+button.btn-yellow-wire {
+	background-color: #FFFF66;
+}
+
+button.btn-white-wire {
+	background-color: #EEEEEE;
+}
+
+button.btn-black-wire {
+	background-color: #555555;
+}
+
+button.selected {
+	outline-offset: 1px;
+	outline: 2px solid black;
+}
+
+button.selected:focus {
+	outline-offset: 1px;
+	outline: 2px solid black;
+}
+
+.wires-solution {
+	margin-top: 10px;
+}
