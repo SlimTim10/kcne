@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html data-ng-app="kcneApp">
+  <head>
+	<title>Keep Cheating and Nobody Explodes</title>
+	<link rel="stylesheet" media="all" href="css/bootstrap-3.3.5.css">
+	<link rel="stylesheet" media="all" href="css/main.css">
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap-3.3.5.min.js"></script>
+	<script src="js/angular-1.4.4.min.js"></script>
+	<script src="js/app.js"></script>
+  </head>
+  <body data-ng-controller="MainCtrl">
+	<div id="header">
+	  <h3 class="text-center">{{title}}</h3>
+	</div>
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-md-6">
+		  <div class="panel panel-default">
+			<div class="panel-heading clearfix">
+			  <h3 class="panel-title pull-left">Wires</h3>
+			</div>
+			<div class="panel-body">
+			  <ul class="list-group">
+				<li class="list-group-item" data-ng-repeat="wire in wires track by $index">
+				  <button class="btn btn-red-wire{{wire === 'red' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'red')">Red</button>
+				  <button class="btn btn-blue-wire{{wire === 'blue' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'blue')">Blue</button>
+				  <button class="btn btn-yellow-wire{{wire === 'yellow' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'yellow')">Yellow</button>
+				  <button class="btn btn-white-wire{{wire === 'white' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'white')">White</button>
+				  <button class="btn btn-black-wire{{wire === 'black' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'black')">Black</button>
+				</li>
+				<li class="list-group-item">
+				  <h4 style="display: inline">Last digit of the serial number is </h4>
+				  <button class="btn btn-default{{serialOddEven === 'odd' ? ' selected' : ''}}" data-ng-click="selectSerialOddEven('odd')">Odd</button>
+				  <button class="btn btn-default{{serialOddEven === 'even' ? ' selected' : ''}}" data-ng-click="selectSerialOddEven('even')">Even</button>
+				</li>
+			  </ul>
+			  <button class="btn btn-success" data-ng-click="solveWires()">Solve</button>
+			  <button class="btn btn-default" data-ng-click="resetWires()">Reset</button>
+			  <div class="well wires-solution">{{wiresSolution}}</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </body>
+</html>
