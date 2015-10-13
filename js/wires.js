@@ -1,8 +1,7 @@
 var kcneApp = angular.module("kcneApp", []);
 
-kcneApp.controller("MainCtrl", function($scope) {
+kcneApp.controller("WiresCtrl", function($scope) {
 	var init = function() {
-		$scope.title = "Keep Cheating and Nobody Explodes";
 		$scope.resetWires();
 	};
 
