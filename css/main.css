@@ -1,5 +1,6 @@
 button.btn {
 	font-weight: bold;
+	margin: 0 3px 0 3px;
 }
 
 button.btn-red-wire {
@@ -23,13 +24,13 @@ button.btn-black-wire {
 }
 
 button.selected {
-	outline-offset: 1px;
-	outline: 2px solid black;
+	outline-offset: 2px;
+	outline: 5px solid black;
 }
 
 button.selected:focus {
-	outline-offset: 1px;
-	outline: 2px solid black;
+	outline-offset: 2px;
+	outline: 5px solid black;
 }
 
 .wires-solution {
