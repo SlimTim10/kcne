@@ -1,11 +1,9 @@
-var kcneApp = angular.module("kcneApp", []);
-
 kcneApp.controller("WiresCtrl", function($scope) {
 	var init = function() {
-		$scope.resetWires();
+		$scope.reset();
 	};
 
-	$scope.resetWires = function() {
+	$scope.reset = function() {
 		$scope.wires = ["", "", "", "", "", ""];
 		$scope.serialOddEven = "";
 		$scope.wiresSolution = "";
@@ -19,7 +17,7 @@ kcneApp.controller("WiresCtrl", function($scope) {
 		$scope.serialOddEven = selection;
 	};
 
-	$scope.solveWires = function() {
+	$scope.solve = function() {
 		var red_count = 0, blue_count = 0, yellow_count = 0, white_count = 0, black_count = 0;
 		var wires = [];
 		for (var i = 0; i < $scope.wires.length; i++) {

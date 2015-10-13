@@ -7,16 +7,26 @@
 	<script src="js/lib/jquery-2.1.4.min.js"></script>
 	<script src="js/lib/bootstrap-3.3.5.min.js"></script>
 	<script src="js/lib/angular-1.4.4.min.js"></script>
+	<script src="js/appBase.js"></script>
 	<script src="js/wires.js"></script>
+	<script src="js/button.js"></script>
   </head>
   <body>
 	<div id="header">
 	  <h1 class="text-center">Keep Cheating and Nobody Explodes</h1>
 	</div>
 	<div class="container-fluid">
+	  <div class="row" id="modules-nav">
+		<div class="col-md-3 col-centered">
+		  <ul class="nav nav-pills">
+			<li class="active"><a href="#wires" data-toggle="tab">Wires</a></li>
+			<li><a href="#button" data-toggle="tab">Button</a></li>
+		  </ul>
+		</div>
+	  </div>
 	  <div class="row">
-		<div class="col-md-3">
-		  <div class="panel panel-default" data-ng-controller="WiresCtrl">
+		<div class="col-md-3 col-centered tab-content">
+		  <div class="panel panel-default tab-pane active" id="wires" data-ng-controller="WiresCtrl">
 			<div class="panel-heading clearfix">
 			  <span class="panel-title pull-left module-title">Wires</span>
 			  <img class="diagram" src="img/WireComponent.svg"></img>
@@ -24,11 +34,11 @@
 			<div class="panel-body">
 			  <ul class="list-group">
 				<li class="list-group-item" data-ng-repeat="wire in wires track by $index">
-				  <button class="btn btn-red-wire{{wire === 'red' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'red')">Red</button>
-				  <button class="btn btn-blue-wire{{wire === 'blue' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'blue')">Blue</button>
-				  <button class="btn btn-yellow-wire{{wire === 'yellow' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'yellow')">Yellow</button>
-				  <button class="btn btn-white-wire{{wire === 'white' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'white')">White</button>
-				  <button class="btn btn-black-wire{{wire === 'black' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'black')">Black</button>
+				  <button class="btn btn-red-color{{wire === 'red' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'red')">Red</button>
+				  <button class="btn btn-blue-color{{wire === 'blue' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'blue')">Blue</button>
+				  <button class="btn btn-yellow-color{{wire === 'yellow' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'yellow')">Yellow</button>
+				  <button class="btn btn-white-color{{wire === 'white' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'white')">White</button>
+				  <button class="btn btn-black-color{{wire === 'black' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'black')">Black</button>
 				</li>
 				<li class="list-group-item">
 				  <h4 style="display: inline">Last digit of the serial number is </h4>
@@ -36,8 +46,38 @@
 				  <button class="btn btn-default{{serialOddEven === 'even' ? ' selected' : ''}}" data-ng-click="selectSerialOddEven('even')">Even</button>
 				</li>
 			  </ul>
-			  <button class="btn btn-success" data-ng-click="solveWires()">Solve</button>
-			  <button class="btn btn-default" data-ng-click="resetWires()">Reset</button>
+			  <button class="btn btn-success" data-ng-click="solve()">Solve</button>
+			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
+			  <div class="well wires-solution">{{wiresSolution}}</div>
+			</div>
+		  </div>
+		  <div class="panel panel-default tab-pane" id="button" data-ng-controller="ButtonCtrl">
+			<div class="panel-heading clearfix">
+			  <span class="panel-title pull-left module-title">Button</span>
+			  <img class="diagram" src="img/ButtonComponent.svg"></img>
+			</div>
+			<div class="panel-body">
+			  <ul class="list-group">
+				<li class="list-group-item">
+				  <h4 style="display: inline">Color </h4>
+				  <button class="btn btn-red-color{{buttonColor === 'red' ? ' selected' : ''}}" data-ng-click="selectColor('red')">Red</button>
+				  <button class="btn btn-blue-color{{buttonColor === 'blue' ? ' selected' : ''}}" data-ng-click="selectColor('blue')">Blue</button>
+				  <button class="btn btn-yellow-color{{buttonColor === 'yellow' ? ' selected' : ''}}" data-ng-click="selectColor('yellow')">Yellow</button>
+				  <button class="btn btn-white-color{{buttonColor === 'white' ? ' selected' : ''}}" data-ng-click="selectColor('white')">White</button>
+				</li>
+				<li class="list-group-item">
+				  <h4 style="display: inline">Label </h4>
+				  <button class="btn btn-default{{buttonLabel === 'Abort' ? ' selected' : ''}}" data-ng-click="selectLabel('Abort')">Abort</button>
+				  <button class="btn btn-default{{buttonLabel === 'Detonate' ? ' selected' : ''}}" data-ng-click="selectLabel('Detonate')">Detonate</button>
+				  <button class="btn btn-default{{buttonLabel === 'Hold' ? ' selected' : ''}}" data-ng-click="selectLabel('Hold')">Hold</button>
+				  <button class="btn btn-default{{buttonLabel === 'Press' ? ' selected' : ''}}" data-ng-click="selectLabel('Press')">Press</button>
+				</li>
+				<li class="list-group-item">
+				  <h4 style="display: inline">Lit indicator that says CAR? </h4>
+				</li>
+			  </ul>
+			  <button class="btn btn-success" data-ng-click="solve()">Solve</button>
+			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
 			  <div class="well wires-solution">{{wiresSolution}}</div>
 			</div>
 		  </div>
