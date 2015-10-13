@@ -1,3 +1,14 @@
+img.diagram {
+	width: 9em;
+	float: right;
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+
+.module-title {
+	font-size: 3em;
+}
+
 button.btn {
 	font-weight: bold;
 	margin: 0 3px 0 3px;
