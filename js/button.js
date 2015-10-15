@@ -40,6 +40,8 @@ kcneApp.controller("ButtonCtrl", function($scope) {
 	};
 
 	$scope.solve = function() {
+		$scope.hold = false;
+		
 		if ($scope.color === "blue" && $scope.label === "Abort") {
 			$scope.hold = true;
 		} else if ($scope.label === "Detonate" && $scope.batteries === "") {
