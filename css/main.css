@@ -1,25 +1,45 @@
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+#modules-nav {
+	padding-bottom: 10px;
+}
+
+img.diagram {
+	width: 9em;
+	float: right;
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+
+.module-title {
+	font-size: 3em;
+}
+
 button.btn {
 	font-weight: bold;
 	margin: 0 3px 0 3px;
 }
 
-button.btn-red-wire {
+button.btn-red-color {
 	background-color: #FF4444;
 }
 
-button.btn-blue-wire {
+button.btn-blue-color {
 	background-color: #5555FF;
 }
 
-button.btn-yellow-wire {
+button.btn-yellow-color {
 	background-color: #FFFF66;
 }
 
-button.btn-white-wire {
+button.btn-white-color {
 	background-color: #EEEEEE;
 }
 
-button.btn-black-wire {
+button.btn-black-color {
 	background-color: #555555;
 }
 
@@ -33,6 +53,29 @@ button.selected:focus {
 	outline: 5px solid black;
 }
 
-.wires-solution {
+.module-solution {
 	margin-top: 10px;
+}
+
+li.button-hold-blue {
+	background-color: #77F;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+li.button-hold-yellow {
+	background-color: #FF0;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+li.button-hold-white {
+	background-color: #FFF;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+li.button-hold-other {
+	font-weight: bold;
+	padding: 5px 0 5px 0;
 }

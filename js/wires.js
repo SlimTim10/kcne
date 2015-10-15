@@ -1,14 +1,12 @@
-var kcneApp = angular.module("kcneApp", []);
-
 kcneApp.controller("WiresCtrl", function($scope) {
 	var init = function() {
-		$scope.resetWires();
+		$scope.reset();
 	};
 
-	$scope.resetWires = function() {
+	$scope.reset = function() {
 		$scope.wires = ["", "", "", "", "", ""];
 		$scope.serialOddEven = "";
-		$scope.wiresSolution = "";
+		$scope.solution = "";
 	};
 
 	$scope.selectWire = function(n, color) {
@@ -19,7 +17,7 @@ kcneApp.controller("WiresCtrl", function($scope) {
 		$scope.serialOddEven = selection;
 	};
 
-	$scope.solveWires = function() {
+	$scope.solve = function() {
 		var red_count = 0, blue_count = 0, yellow_count = 0, white_count = 0, black_count = 0;
 		var wires = [];
 		for (var i = 0; i < $scope.wires.length; i++) {
@@ -64,7 +62,7 @@ kcneApp.controller("WiresCtrl", function($scope) {
 			break;
 		case 4:
 			if (red_count > 1 && $scope.serialOddEven === "") {
-				$scope.wiresSolution = "Check the serial number!";
+				$scope.solution = "Check the serial number!";
 			} else if (red_count > 1 && $scope.serialOddEven === "odd") {
 				cutWire = "last red";
 			} else if (lastWire === "yellow" && red_count === 0) {
@@ -79,7 +77,7 @@ kcneApp.controller("WiresCtrl", function($scope) {
 			break;
 		case 5:
 			if (lastWire === "black" && $scope.serialOddEven === "") {
-				$scope.wiresSolution = "Check the serial number!";
+				$scope.solution = "Check the serial number!";
 			} else if (lastWire === "black" && $scope.serialOddEven === "odd") {
 				cutWire = "fourth";
 			} else if (red_count === 1 && yellow_count > 1) {
@@ -92,7 +90,7 @@ kcneApp.controller("WiresCtrl", function($scope) {
 			break;
 		case 6:
 			if (yellow_count === 0 && $scope.serialOddEven === "") {
-				$scope.wiresSolution = "Check the serial number!";
+				$scope.solution = "Check the serial number!";
 			} else if (yellow_count === 0 && $scope.serialOddEven === "odd") {
 				cutWire = "third";
 			} else if (yellow_count === 1 && white_count > 1) {
@@ -106,7 +104,7 @@ kcneApp.controller("WiresCtrl", function($scope) {
 		}
 
 		if (cutWire !== "") {
-			$scope.wiresSolution = "Cut the " + cutWire + " wire.";
+			$scope.solution = "Cut the " + cutWire + " wire.";
 		}
 	};
 
