@@ -12,7 +12,7 @@
 	<script src="js/button.js"></script>
   </head>
   <body>
-	<div id="header">
+	<div class="page-header">
 	  <h1 class="text-center">Keep Cheating and Nobody Explodes</h1>
 	</div>
 	<div class="container-fluid">
@@ -48,7 +48,7 @@
 			  </ul>
 			  <button class="btn btn-success" data-ng-click="solve()">Solve</button>
 			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
-			  <div class="well wires-solution">{{wiresSolution}}</div>
+			  <div class="well module-solution">{{solution}}</div>
 			</div>
 		  </div>
 		  <div class="panel panel-default tab-pane" id="button" data-ng-controller="ButtonCtrl">
@@ -60,25 +60,57 @@
 			  <ul class="list-group">
 				<li class="list-group-item">
 				  <h4 style="display: inline">Color </h4>
-				  <button class="btn btn-red-color{{buttonColor === 'red' ? ' selected' : ''}}" data-ng-click="selectColor('red')">Red</button>
-				  <button class="btn btn-blue-color{{buttonColor === 'blue' ? ' selected' : ''}}" data-ng-click="selectColor('blue')">Blue</button>
-				  <button class="btn btn-yellow-color{{buttonColor === 'yellow' ? ' selected' : ''}}" data-ng-click="selectColor('yellow')">Yellow</button>
-				  <button class="btn btn-white-color{{buttonColor === 'white' ? ' selected' : ''}}" data-ng-click="selectColor('white')">White</button>
+				  <button class="btn btn-red-color{{color === 'red' ? ' selected' : ''}}" data-ng-click="selectColor('red')">Red</button>
+				  <button class="btn btn-blue-color{{color === 'blue' ? ' selected' : ''}}" data-ng-click="selectColor('blue')">Blue</button>
+				  <button class="btn btn-yellow-color{{color === 'yellow' ? ' selected' : ''}}" data-ng-click="selectColor('yellow')">Yellow</button>
+				  <button class="btn btn-white-color{{color === 'white' ? ' selected' : ''}}" data-ng-click="selectColor('white')">White</button>
 				</li>
 				<li class="list-group-item">
 				  <h4 style="display: inline">Label </h4>
-				  <button class="btn btn-default{{buttonLabel === 'Abort' ? ' selected' : ''}}" data-ng-click="selectLabel('Abort')">Abort</button>
-				  <button class="btn btn-default{{buttonLabel === 'Detonate' ? ' selected' : ''}}" data-ng-click="selectLabel('Detonate')">Detonate</button>
-				  <button class="btn btn-default{{buttonLabel === 'Hold' ? ' selected' : ''}}" data-ng-click="selectLabel('Hold')">Hold</button>
-				  <button class="btn btn-default{{buttonLabel === 'Press' ? ' selected' : ''}}" data-ng-click="selectLabel('Press')">Press</button>
+				  <button class="btn btn-default{{label === 'Abort' ? ' selected' : ''}}" data-ng-click="selectLabel('Abort')">Abort</button>
+				  <button class="btn btn-default{{label === 'Detonate' ? ' selected' : ''}}" data-ng-click="selectLabel('Detonate')">Detonate</button>
+				  <button class="btn btn-default{{label === 'Hold' ? ' selected' : ''}}" data-ng-click="selectLabel('Hold')">Hold</button>
+				  <button class="btn btn-default{{label === 'Press' ? ' selected' : ''}}" data-ng-click="selectLabel('Press')">Press</button>
 				</li>
-				<li class="list-group-item">
+				<li class="list-group-item" style="display: {{moreInfo === 'CAR' ? 'block' : 'none'}}">
 				  <h4 style="display: inline">Lit indicator that says CAR? </h4>
+				  <button class="btn btn-default{{indicatorCAR === 'no' ? ' selected' : ''}}" data-ng-click="selectIndicatorCAR('no')">No</button>
+				  <button class="btn btn-default{{indicatorCAR === 'yes' ? ' selected' : ''}}" data-ng-click="selectIndicatorCAR('yes')">Yes</button>
+				</li>
+				<li class="list-group-item" style="display: {{moreInfo === 'FRK' ? 'block' : 'none'}}">
+				  <h4 style="display: inline">Lit indicator that says FRK? </h4>
+				  <button class="btn btn-default{{indicatorFRK === 'no' ? ' selected' : ''}}" data-ng-click="selectIndicatorFRK('no')">No</button>
+				  <button class="btn btn-default{{indicatorFRK === 'yes' ? ' selected' : ''}}" data-ng-click="selectIndicatorFRK('yes')">Yes</button>
+				</li>
+				<li class="list-group-item" style="display: {{moreInfo === 'batteries' ? 'block' : 'none'}}">
+				  <h4 style="display: inline">How many batteries? </h4>
+				  <button class="btn btn-default{{batteries === 0 ? ' selected' : ''}}" data-ng-click="selectBatteries(0)">0</button>
+				  <button class="btn btn-default{{batteries === 1 ? ' selected' : ''}}" data-ng-click="selectBatteries(1)">1</button>
+				  <button class="btn btn-default{{batteries === 2 ? ' selected' : ''}}" data-ng-click="selectBatteries(2)">2</button>
+				  <button class="btn btn-default{{batteries === 3 ? ' selected' : ''}}" data-ng-click="selectBatteries(3)">3</button>
+				  <button class="btn btn-default{{batteries === 4 ? ' selected' : ''}}" data-ng-click="selectBatteries(4)">4</button>
+				  <button class="btn btn-default{{batteries === 5 ? ' selected' : ''}}" data-ng-click="selectBatteries(5)">5</button>
 				</li>
 			  </ul>
 			  <button class="btn btn-success" data-ng-click="solve()">Solve</button>
 			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
-			  <div class="well wires-solution">{{wiresSolution}}</div>
+			  <div class="well module-solution">{{solution}}</div>
+			  <div class="well" style="display: {{hold === true ? 'block' : 'none'}}">
+				<ul>
+				  <li class="button-hold-blue">
+					Blue strip: release when the countdown timer has a 4 in any position.
+				  </li>
+				  <li class="button-hold-yellow">
+					Yellow strip: release when the countdown timer has a 5 in any position.
+				  </li>
+				  <li class="button-hold-white">
+					White strip: release when the countdown timer has a 1 in any position.
+				  </li>
+				  <li class="button-hold-other">
+					Other color strip: release when the countdown timer has a 1 in any position.
+				  </li>
+				</ul>
+			  </div>
 			</div>
 		  </div>
 		</div>

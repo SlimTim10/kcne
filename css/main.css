@@ -53,6 +53,29 @@ button.selected:focus {
 	outline: 5px solid black;
 }
 
-.wires-solution {
+.module-solution {
 	margin-top: 10px;
+}
+
+li.button-hold-blue {
+	background-color: #77F;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+li.button-hold-yellow {
+	background-color: #FF0;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+li.button-hold-white {
+	background-color: #FFF;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+li.button-hold-other {
+	font-weight: bold;
+	padding: 5px 0 5px 0;
 }
