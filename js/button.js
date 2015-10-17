@@ -57,7 +57,7 @@ kcneApp.controller("ButtonCtrl", function($scope) {
 		} else if ($scope.batteries === "") {
 			$scope.moreInfo = "batteries";
 			$scope.solution = "Check the number of batteries!";
-		} else if ($scope.indicatorFRK === "") {
+		} else if ($scope.batteries > 2 && $scope.indicatorFRK === "") {
 			$scope.moreInfo = "FRK";
 			$scope.solution = "Check for a lit inindicator with label FRK!";
 		} else if ($scope.batteries > 2 && $scope.indicatorFRK === "yes") {
