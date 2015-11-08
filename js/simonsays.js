@@ -6,6 +6,7 @@ kcneApp.controller("SimonSaysCtrl", function($scope) {
 	$scope.reset = function() {
 		$scope.vowel = "";
 		$scope.strikes = "";
+		$scope.color = "";
 
 		$scope.solution = "";
 	};
@@ -26,7 +27,14 @@ kcneApp.controller("SimonSaysCtrl", function($scope) {
 	$scope.solve = function() {
 		var getColor = new Object();
 
-		if ($scope.vowel) {
+		if ($scope.vowel === "") {
+			$scope.solution = "Check the serial number!";
+		}
+		if ($scope.strikes === "") {
+			$scope.solution = "Check the number of strikes!";
+		}
+
+		if ($scope.vowel === true) {
 			if ($scope.strikes === 0) {
 				getColor["red"] = "blue";
 				getColor["blue"] = "red";
@@ -43,7 +51,7 @@ kcneApp.controller("SimonSaysCtrl", function($scope) {
 				getColor["green"] = "yellow";
 				getColor["yellow"] = "blue";
 			}
-		} else {
+		} else if ($scope.vowel) {
 			if ($scope.strikes === 0) {
 				getColor["red"] = "blue";
 				getColor["blue"] = "yellow";
@@ -62,7 +70,7 @@ kcneApp.controller("SimonSaysCtrl", function($scope) {
 			}
 		}
 		
-		$scope.solution = getColor[$scope.color];
+		$scope.solution += getColor[$scope.color] + " ";
 	};
 
 	init();
