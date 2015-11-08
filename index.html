@@ -10,6 +10,7 @@
 	<script src="js/appBase.js"></script>
 	<script src="js/wires.js"></script>
 	<script src="js/button.js"></script>
+	<script src="js/simonsays.js"></script>
   </head>
   <body>
 	<div class="page-header">
@@ -21,6 +22,7 @@
 		  <ul class="nav nav-pills">
 			<li class="active"><a href="#wires" data-toggle="tab">Wires</a></li>
 			<li><a href="#button" data-toggle="tab">Button</a></li>
+			<li><a href="#simonsays" data-toggle="tab">Simon Says</a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -41,7 +43,7 @@
 				  <button class="btn btn-black-color{{wire === 'black' ? ' selected' : ''}}" data-ng-click="selectWire($index, 'black')">Black</button>
 				</li>
 				<li class="list-group-item">
-				  <h4 style="display: inline">Last digit of the serial number is </h4>
+				  <h4 class="nobreak">Last digit of the serial number is </h4>
 				  <button class="btn btn-default{{serialOddEven === 'odd' ? ' selected' : ''}}" data-ng-click="selectSerialOddEven('odd')">Odd</button>
 				  <button class="btn btn-default{{serialOddEven === 'even' ? ' selected' : ''}}" data-ng-click="selectSerialOddEven('even')">Even</button>
 				</li>
@@ -59,31 +61,31 @@
 			<div class="panel-body">
 			  <ul class="list-group">
 				<li class="list-group-item">
-				  <h4 style="display: inline">Color </h4>
+				  <h4 class="nobreak">Color </h4>
 				  <button class="btn btn-red-color{{color === 'red' ? ' selected' : ''}}" data-ng-click="selectColor('red')">Red</button>
 				  <button class="btn btn-blue-color{{color === 'blue' ? ' selected' : ''}}" data-ng-click="selectColor('blue')">Blue</button>
 				  <button class="btn btn-yellow-color{{color === 'yellow' ? ' selected' : ''}}" data-ng-click="selectColor('yellow')">Yellow</button>
 				  <button class="btn btn-white-color{{color === 'white' ? ' selected' : ''}}" data-ng-click="selectColor('white')">White</button>
 				</li>
 				<li class="list-group-item">
-				  <h4 style="display: inline">Label </h4>
+				  <h4 class="nobreak">Label </h4>
 				  <button class="btn btn-default{{label === 'Abort' ? ' selected' : ''}}" data-ng-click="selectLabel('Abort')">Abort</button>
 				  <button class="btn btn-default{{label === 'Detonate' ? ' selected' : ''}}" data-ng-click="selectLabel('Detonate')">Detonate</button>
 				  <button class="btn btn-default{{label === 'Hold' ? ' selected' : ''}}" data-ng-click="selectLabel('Hold')">Hold</button>
 				  <button class="btn btn-default{{label === 'Press' ? ' selected' : ''}}" data-ng-click="selectLabel('Press')">Press</button>
 				</li>
 				<li class="list-group-item" style="display: {{moreInfo === 'CAR' ? 'block' : 'none'}}">
-				  <h4 style="display: inline">Lit indicator that says CAR? </h4>
+				  <h4 class="nobreak">Lit indicator that says CAR? </h4>
 				  <button class="btn btn-default{{indicatorCAR === 'yes' ? ' selected' : ''}}" data-ng-click="selectIndicatorCAR('yes')">Yes</button>
 				  <button class="btn btn-default{{indicatorCAR === 'no' ? ' selected' : ''}}" data-ng-click="selectIndicatorCAR('no')">No</button>
 				</li>
 				<li class="list-group-item" style="display: {{moreInfo === 'FRK' ? 'block' : 'none'}}">
-				  <h4 style="display: inline">Lit indicator that says FRK? </h4>
+				  <h4 class="nobreak">Lit indicator that says FRK? </h4>
 				  <button class="btn btn-default{{indicatorFRK === 'yes' ? ' selected' : ''}}" data-ng-click="selectIndicatorFRK('yes')">Yes</button>
 				  <button class="btn btn-default{{indicatorFRK === 'no' ? ' selected' : ''}}" data-ng-click="selectIndicatorFRK('no')">No</button>
 				</li>
 				<li class="list-group-item" style="display: {{moreInfo === 'batteries' ? 'block' : 'none'}}">
-				  <h4 style="display: inline">How many batteries? </h4>
+				  <h4 class="nobreak">How many batteries? </h4>
 				  <button class="btn btn-default{{batteries === 0 ? ' selected' : ''}}" data-ng-click="selectBatteries(0)">0</button>
 				  <button class="btn btn-default{{batteries === 1 ? ' selected' : ''}}" data-ng-click="selectBatteries(1)">1</button>
 				  <button class="btn btn-default{{batteries === 2 ? ' selected' : ''}}" data-ng-click="selectBatteries(2)">2</button>
@@ -111,6 +113,36 @@
 				  </li>
 				</ul>
 			  </div>
+			</div>
+		  </div>
+		  <div class="panel panel-default tab-pane" id="simonsays" data-ng-controller="SimonSaysCtrl">
+			<div class="panel-heading clearfix">
+			  <span class="panel-title pull-left module-title">Simon Says</span>
+			  <img class="diagram" src="img/SimonComponent.svg"></img>
+			</div>
+			<div class="panel-body">
+			  <ul class="list-group">
+				<li class="list-group-item">
+				  <h4 class="nobreak">Serial number contains a vowel? </h4>
+				  <button class="btn btn-default{{vowel === true ? ' selected' : ''}}" data-ng-click="selectVowel(true)">Yes</button>
+				  <button class="btn btn-default{{vowel === false ? ' selected' : ''}}" data-ng-click="selectVowel(false)">No</button>
+				</li>
+				<li class="list-group-item">
+				  <h4 class="nobreak">Number of strikes </h4>
+				  <button class="btn btn-default{{strikes === 0 ? ' selected' : ''}}" data-ng-click="selectStrikes(0)">0</button>
+				  <button class="btn btn-default{{strikes === 1 ? ' selected' : ''}}" data-ng-click="selectStrikes(1)">1</button>
+				  <button class="btn btn-default{{strikes === 2 ? ' selected' : ''}}" data-ng-click="selectStrikes(2)">2</button>
+				</li>
+				<li class="list-group-item">
+				  <h4 class="nobreak">Color </h4>
+				  <button class="btn btn-red-color{{color === 'red' ? ' selected' : ''}}" data-ng-click="selectColor('red')">Red</button>
+				  <button class="btn btn-blue-color{{color === 'blue' ? ' selected' : ''}}" data-ng-click="selectColor('blue')">Blue</button>
+				  <button class="btn btn-green-color{{color === 'green' ? ' selected' : ''}}" data-ng-click="selectColor('green')">Green</button>
+				  <button class="btn btn-yellow-color{{color === 'yellow' ? ' selected' : ''}}" data-ng-click="selectColor('yellow')">Yellow</button>
+				</li>
+			  </ul>
+			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
+			  <div class="well module-solution">{{solution}}</div>
 			</div>
 		  </div>
 		</div>
