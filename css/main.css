@@ -18,6 +18,10 @@ img.diagram {
 	font-size: 3em;
 }
 
+.nobreak {
+	display: inline;
+}
+
 button.btn {
 	font-weight: bold;
 	margin: 0 3px 0 3px;
@@ -29,6 +33,10 @@ button.btn-red-color {
 
 button.btn-blue-color {
 	background-color: #5555FF;
+}
+
+button.btn-green-color {
+	background-color: #55EE55;
 }
 
 button.btn-yellow-color {
