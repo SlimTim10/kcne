@@ -146,7 +146,7 @@ kcneApp.controller("MemoryCtrl", function($scope) {
 		return solutions;
 	};
 
-	solve = function(stage, display) {
+	var solve = function(stage, display) {
 		var solutions = createSolutions();
 		
 		var label = solutions[stage][display]["label"];
