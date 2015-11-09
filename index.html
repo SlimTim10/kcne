@@ -11,6 +11,7 @@
 	<script src="js/wires.js"></script>
 	<script src="js/button.js"></script>
 	<script src="js/simonsays.js"></script>
+	<script src="js/memory.js"></script>
   </head>
   <body>
 	<div class="page-header">
@@ -23,6 +24,7 @@
 			<li class="active"><a href="#wires" data-toggle="tab">Wires</a></li>
 			<li><a href="#button" data-toggle="tab">Button</a></li>
 			<li><a href="#simonsays" data-toggle="tab">Simon Says</a></li>
+			<li><a href="#memory" data-toggle="tab">Memory</a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -143,6 +145,47 @@
 			  </ul>
 			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
 			  <div class="well module-solution">{{solution}}</div>
+			</div>
+		  </div>
+		  <div class="panel panel-default tab-pane" id="memory" data-ng-controller="MemoryCtrl">
+			<div class="panel-heading clearfix">
+			  <span class="panel-title pull-left module-title">Memory</span>
+			  <img class="diagram" src="img/MemoryComponent.svg"></img>
+			</div>
+			<div class="panel-body">
+			  <div class="panel panel-default memory-stage" style="display: {{stage['hide'] === false ? 'block' : 'none'}}" data-ng-repeat="stage in stages track by $index">
+				<div class="panel-heading">
+				  Stage {{$index + 1}}
+				</div>
+				<div class="panel-body">
+				  <ul class="list-group">
+					<li class="list-group-item">
+					  <h4 class="nobreak">Display </h4>
+					  <button class="btn btn-default{{stage['display'] === 1 ? ' selected' : ''}}" data-ng-click="selectDisplay($index, 1)">1</button>
+					  <button class="btn btn-default{{stage['display'] === 2 ? ' selected' : ''}}" data-ng-click="selectDisplay($index, 2)">2</button>
+					  <button class="btn btn-default{{stage['display'] === 3 ? ' selected' : ''}}" data-ng-click="selectDisplay($index, 3)">3</button>
+					  <button class="btn btn-default{{stage['display'] === 4 ? ' selected' : ''}}" data-ng-click="selectDisplay($index, 4)">4</button>
+					</li>
+					<div class="well module-solution">{{stage['solution']}}</div>
+					<li class="list-group-item" style="display: {{stage['display'] === '' ? 'none' : 'block'}}">
+					  <h4 class="nobreak">Label </h4>
+					  <button class="btn btn-default{{stage['label'] === 1 ? ' selected' : ''}}" data-ng-click="selectLabel($index, 1)">1</button>
+					  <button class="btn btn-default{{stage['label'] === 2 ? ' selected' : ''}}" data-ng-click="selectLabel($index, 2)">2</button>
+					  <button class="btn btn-default{{stage['label'] === 3 ? ' selected' : ''}}" data-ng-click="selectLabel($index, 3)">3</button>
+					  <button class="btn btn-default{{stage['label'] === 4 ? ' selected' : ''}}" data-ng-click="selectLabel($index, 4)">4</button>
+					</li>
+					<li class="list-group-item" style="display: {{stage['display'] === '' ? 'none' : 'block'}}">
+					  <h4 class="nobreak">Position </h4>
+					  <button class="btn btn-default{{stage['position'] === 1 ? ' selected' : ''}}" data-ng-click="selectPosition($index, 1)">1</button>
+					  <button class="btn btn-default{{stage['position'] === 2 ? ' selected' : ''}}" data-ng-click="selectPosition($index, 2)">2</button>
+					  <button class="btn btn-default{{stage['position'] === 3 ? ' selected' : ''}}" data-ng-click="selectPosition($index, 3)">3</button>
+					  <button class="btn btn-default{{stage['position'] === 4 ? ' selected' : ''}}" data-ng-click="selectPosition($index, 4)">4</button>
+					</li>
+				  </ul>
+
+				</div>
+			  </div>
+			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
 			</div>
 		  </div>
 		</div>
