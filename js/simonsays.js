@@ -21,10 +21,10 @@ kcneApp.controller("SimonSaysCtrl", function($scope) {
 
 	$scope.selectColor = function(color) {
 		$scope.color = color;
-		$scope.solve();
+		solve();
 	};
 
-	$scope.solve = function() {
+	var solve = function() {
 		var getColor = new Object();
 
 		if ($scope.vowel === "") {
