@@ -1,6 +1,4 @@
 kcneApp.controller("MemoryCtrl", function($scope) {
-	
-
 	var positionWords = {
 		1: "first",
 		2: "second",
