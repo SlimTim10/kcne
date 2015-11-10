@@ -91,3 +91,11 @@ li.button-hold-other {
 .memory-stage {
 	background-color: #E5F0FF;
 }
+
+td.complicated-wires {
+	text-align: center;
+}
+
+button.complicated-wires-color-btn {
+	margin: 5px 0 5px 0;
+}
