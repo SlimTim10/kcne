@@ -12,6 +12,7 @@
 	<script src="js/button.js"></script>
 	<script src="js/simonsays.js"></script>
 	<script src="js/memory.js"></script>
+	<script src="js/complicatedwires.js"></script>
   </head>
   <body>
 	<div class="page-header">
@@ -25,6 +26,7 @@
 			<li><a href="#button" data-toggle="tab">Button</a></li>
 			<li><a href="#simonsays" data-toggle="tab">Simon Says</a></li>
 			<li><a href="#memory" data-toggle="tab">Memory</a></li>
+			<li><a href="#complicatedwires" data-toggle="tab">Complicated Wires</a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -185,6 +187,52 @@
 
 				</div>
 			  </div>
+			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
+			</div>
+		  </div>
+		  <div class="panel panel-default tab-pane" id="complicatedwires" data-ng-controller="ComplicatedWiresCtrl">
+			<div class="panel-heading clearfix">
+			  <span class="panel-title pull-left module-title">Complicated Wires</span>
+			  <img class="diagram" src="img/VennWireComponent.svg"></img>
+			</div>
+			<div class="panel-body">
+			  <table class="table">
+				<tr>
+				  <td>
+					<h4 class="nobreak">LEDs</h4>
+				  </td>
+				  <td data-ng-repeat="combination in combinations track by $index">
+					<button class="btn btn-default{{combination['LED'] === true ? ' selected' : ''}}" data-ng-click="toggleLED($index)">LED</button>
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					<h4 class="nobreak">Wires</h4>
+				  </td>
+				  <td data-ng-repeat="combination in combinations track by $index">
+					<button style="margin: 5px 0 5px 0;" class="btn btn-red-color{{combination['wire']['red'] === true ? ' selected' : ''}}" data-ng-click="toggleWire($index, 'red')">Red</button>
+					<button style="margin: 5px 0 5px 0;" class="btn btn-blue-color{{combination['wire']['blue'] === true ? ' selected' : ''}}" data-ng-click="toggleWire($index, 'blue')">Blue</button>
+					<button style="margin: 5px 0 5px 0;" class="btn btn-white-color{{combination['wire']['white'] === true ? ' selected' : ''}}" data-ng-click="toggleWire($index, 'white')">White</button>
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					<h4 class="nobreak">Stars</h4>
+				  </td>
+				  <td data-ng-repeat="combination in combinations track by $index">
+					<button class="btn btn-default{{combination['star'] === true ? ' selected' : ''}}" data-ng-click="toggleStar($index)">Star</button>
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					<h4 class="nobreak">Solutions</h4>
+				  </td>
+				  <td data-ng-repeat="combination in combinations track by $index">
+					<div class="well module-solution">{{combination['solution']}}</div>
+				  </td>
+				</tr>
+			  </table>
+			  <button class="btn btn-success" data-ng-click="solve()">Solve</button>
 			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
 			</div>
 		  </div>
