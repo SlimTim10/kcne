@@ -155,6 +155,7 @@
 			  <img class="diagram" src="img/MemoryComponent.svg"></img>
 			</div>
 			<div class="panel-body">
+			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
 			  <div class="panel panel-default memory-stage" style="display: {{stage['hide'] === false ? 'block' : 'none'}}" data-ng-repeat="stage in stages track by $index">
 				<div class="panel-heading">
 				  Stage {{$index + 1}}
@@ -187,7 +188,6 @@
 
 				</div>
 			  </div>
-			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
 			</div>
 		  </div>
 		  <div class="panel panel-default tab-pane" id="complicatedwires" data-ng-controller="ComplicatedWiresCtrl">
