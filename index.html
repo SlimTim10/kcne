@@ -196,12 +196,33 @@
 			  <img class="diagram" src="img/VennWireComponent.svg"></img>
 			</div>
 			<div class="panel-body">
+			  <ul class="list-group">
+				<li class="list-group-item">
+				  <h4 class="nobreak">Last digit of the serial number is </h4>
+				  <button class="btn btn-default{{serialNumberEven === false ? ' selected' : ''}}" data-ng-click="selectSerialNumberEven(false)">Odd</button>
+				  <button class="btn btn-default{{serialNumberEven === true ? ' selected' : ''}}" data-ng-click="selectSerialNumberEven(true)">Even</button>
+				</li>
+				<li class="list-group-item">
+				  <h4 class="nobreak">Is there a parallel port? (round holes, long, pink) </h4>
+				  <button class="btn btn-default{{parallelPort === false ? ' selected' : ''}}" data-ng-click="selectParallelPort(false)">No</button>
+				  <button class="btn btn-default{{parallelPort === true ? ' selected' : ''}}" data-ng-click="selectParallelPort(true)">Yes</button>
+				</li>
+				<li class="list-group-item">
+				  <h4 class="nobreak">How many batteries? </h4>
+				  <button class="btn btn-default{{batteries === 0 ? ' selected' : ''}}" data-ng-click="selectBatteries(0)">0</button>
+				  <button class="btn btn-default{{batteries === 1 ? ' selected' : ''}}" data-ng-click="selectBatteries(1)">1</button>
+				  <button class="btn btn-default{{batteries === 2 ? ' selected' : ''}}" data-ng-click="selectBatteries(2)">2</button>
+				  <button class="btn btn-default{{batteries === 3 ? ' selected' : ''}}" data-ng-click="selectBatteries(3)">3</button>
+				  <button class="btn btn-default{{batteries === 4 ? ' selected' : ''}}" data-ng-click="selectBatteries(4)">4</button>
+				  <button class="btn btn-default{{batteries === 5 ? ' selected' : ''}}" data-ng-click="selectBatteries(5)">5</button>
+				</li>
+			  </ul>
 			  <table class="table">
 				<tr>
 				  <td>
 					<h4 class="nobreak">LEDs</h4>
 				  </td>
-				  <td data-ng-repeat="combination in combinations track by $index">
+				  <td style="text-align: center;" data-ng-repeat="combination in combinations track by $index">
 					<button class="btn btn-default{{combination['LED'] === true ? ' selected' : ''}}" data-ng-click="toggleLED($index)">LED</button>
 				  </td>
 				</tr>
@@ -209,7 +230,7 @@
 				  <td>
 					<h4 class="nobreak">Wires</h4>
 				  </td>
-				  <td data-ng-repeat="combination in combinations track by $index">
+				  <td style="text-align: center;" data-ng-repeat="combination in combinations track by $index">
 					<button style="margin: 5px 0 5px 0;" class="btn btn-red-color{{combination['wire']['red'] === true ? ' selected' : ''}}" data-ng-click="toggleWire($index, 'red')">Red</button>
 					<button style="margin: 5px 0 5px 0;" class="btn btn-blue-color{{combination['wire']['blue'] === true ? ' selected' : ''}}" data-ng-click="toggleWire($index, 'blue')">Blue</button>
 					<button style="margin: 5px 0 5px 0;" class="btn btn-white-color{{combination['wire']['white'] === true ? ' selected' : ''}}" data-ng-click="toggleWire($index, 'white')">White</button>
@@ -219,7 +240,7 @@
 				  <td>
 					<h4 class="nobreak">Stars</h4>
 				  </td>
-				  <td data-ng-repeat="combination in combinations track by $index">
+				  <td style="text-align: center;" data-ng-repeat="combination in combinations track by $index">
 					<button class="btn btn-default{{combination['star'] === true ? ' selected' : ''}}" data-ng-click="toggleStar($index)">Star</button>
 				  </td>
 				</tr>
@@ -227,7 +248,7 @@
 				  <td>
 					<h4 class="nobreak">Solutions</h4>
 				  </td>
-				  <td data-ng-repeat="combination in combinations track by $index">
+				  <td style="text-align: center;" data-ng-repeat="combination in combinations track by $index">
 					<div class="well module-solution">{{combination['solution']}}</div>
 				  </td>
 				</tr>
