@@ -109,6 +109,12 @@ kcneApp.controller("ComplicatedWiresCtrl", function($scope) {
 			 !LED &&
 			 $scope.serialNumberEven) ||
 
+			(red &&
+			 blue &&
+			 !star &&
+			 LED &&
+			 $scope.serialNumberEven) ||
+
 			(!red &&
 			 blue &&
 			 !star &&
