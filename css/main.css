@@ -93,10 +93,32 @@ li.button-hold-other {
 	margin-top: 10px;
 }
 
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
 td.complicated-wires {
 	text-align: center;
 }
 
 button.complicated-wires-color-btn {
 	margin: 5px 0 5px 0;
+}
+
+#wire-sequences-prev {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+#wire-sequences-next {
+	text-align: center;
+}
+
+td.wire-sequences {
+	text-align: center;
+}
+
+.wire-sequences-solution {
+	width: 120px;
+	height: 4em;
 }

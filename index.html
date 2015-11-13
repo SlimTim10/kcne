@@ -13,6 +13,7 @@
 	<script src="js/simonsays.js"></script>
 	<script src="js/memory.js"></script>
 	<script src="js/complicatedwires.js"></script>
+	<script src="js/wiresequences.js"></script>
   </head>
   <body>
 	<div class="page-header">
@@ -28,6 +29,7 @@
 			<li><a href="#simonsays" data-toggle="tab">Simon Says</a></li>
 			<li><a href="#memory" data-toggle="tab">Memory</a></li>
 			<li><a href="#complicatedwires" data-toggle="tab">Complicated Wires</a></li>
+			<li><a href="#wiresequences" data-toggle="tab">Wire Sequences</a></li>
 		  </ul>
 		</div>
 	  </div>
@@ -256,6 +258,44 @@
 			  </table>
 			  <button class="btn btn-success" data-ng-click="solve()">Solve</button>
 			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
+			</div>
+		  </div>
+		  <div class="panel panel-default tab-pane" id="wiresequences" data-ng-controller="WireSequencesCtrl">
+			<div class="panel-heading clearfix">
+			  <span class="panel-title pull-left module-title">Wire Sequences</span>
+			  <img class="diagram" src="img/WireSequenceComponent.svg"></img>
+			</div>
+			<div class="panel-body">
+			  <button class="btn btn-default" data-ng-click="reset()">Reset</button>
+			  <div id="wire-sequences-prev">
+				<button class="btn btn-default btn-lg" data-ng-click="prevPanel()">Prev</button>
+			  </div>
+			  <table class="table table-bordered">
+				<tr style="display: {{sequence['hide'] === true ? 'none' : ''}}" data-ng-repeat="sequence in sequences track by $index">
+				  <td>
+					<h4>{{$index + 1}}</h4>
+				  </td>
+				  <td class="wire-sequences">
+					<button class="btn btn-red-color{{sequence['color'] === 'red' ? ' selected' : ''}}" data-ng-click="selectColor($index, 'red')">Red</button>
+					<button class="btn btn-blue-color{{sequence['color'] === 'blue' ? ' selected' : ''}}" data-ng-click="selectColor($index, 'blue')">Blue</button>
+					<button class="btn btn-black-color{{sequence['color'] === 'black' ? ' selected' : ''}}" data-ng-click="selectColor($index, 'black')">Black</button>
+				  </td>
+				  <td class="wire-sequences">
+					<h4 class="nobreak">connected to</h4>
+				  </td>
+				  <td class="wire-sequences">
+					<button class="btn btn-default{{sequence['letter'] === 'A' ? ' selected' : ''}}" data-ng-click="selectLetter($index, 'A')">A</button>
+					<button class="btn btn-default{{sequence['letter'] === 'B' ? ' selected' : ''}}" data-ng-click="selectLetter($index, 'B')">B</button>
+					<button class="btn btn-default{{sequence['letter'] === 'C' ? ' selected' : ''}}" data-ng-click="selectLetter($index, 'C')">C</button>
+				  </td>
+				  <td class="wire-sequences">
+					<div class="well wire-sequences-solution">{{sequence['solution']}}</div>
+				  </td>
+				</tr>
+			  </table>
+			  <div id="wire-sequences-next">
+				<button class="btn btn-default btn-lg" data-ng-click="nextPanel()">Next</button>
+			  </div>
 			</div>
 		  </div>
 		</div>
