@@ -2,4 +2,4 @@
 
 A tool to help play the game Keep Talking and Nobody Explodes.
 
-![Screenshot](kcne.png?raw=true "Screenshot")
+![Screenshot](screenshot.png?raw=true "Screenshot")
